@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1725445603266" org.eventb.texttools.text_representation="context C0&#10;&#10;sets D&#10;&#10;constants n f&#10;&#10;axioms&#10;  @axm0_1 0 &lt; n&#10;  @axm0_2 f ∈ 1‥n → D&#10;end&#10;" version="3">
-    <org.eventb.core.carrierSet name="_vTd_kGqfEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="D"/>
-    <org.eventb.core.constant name="_vTf0wGqfEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="n"/>
-    <org.eventb.core.constant name="_vTf0wWqfEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="f"/>
-    <org.eventb.core.axiom name="_vTgb0GqfEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="axm0_1" org.eventb.core.predicate="0 &lt; n"/>
-    <org.eventb.core.axiom name="_vThC4GqfEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="axm0_2" org.eventb.core.predicate="f ∈ 1‥n → D"/>
-</org.eventb.core.contextFile>
