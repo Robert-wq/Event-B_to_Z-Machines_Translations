@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1725532047278" org.eventb.texttools.text_representation="&#10;context GuiStates&#10;&#10;sets Modes&#10;&#10;constants ModesG StartUp Start SelfTest Menu Settings Ventilation&#10;&#9;&#9;  Off possTransG PCV PSV batteryRange&#10;&#10;axioms&#10;  @axm1 ModesG ⊆ Modes&#10;  @axm2 partition(ModesG, {StartUp}, {Start}, {Menu}, {SelfTest},&#10;  &#9;&#9;&#9;&#9;&#9;&#9;  {Settings}, Ventilation, {Off})&#10;  @axm3 partition(Ventilation, {PCV},{PSV})&#10;  @axm4 possTransG ∈ BOOL → ℙ(ModesG×ModesG)&#10;  @axm5 possTransG={TRUE↦{&#10;        Off↦StartUp,&#10;        StartUp↦Start&#10;        }∪&#10;        ({StartUp}×Ventilation) ∪&#10;        {Start↦Menu, Start↦SelfTest,&#10;        Menu↦Settings, SelfTest↦SelfTest,&#10;        SelfTest↦Menu, Settings↦Menu} ∪ ({Off}×Ventilation) ∪&#10;        ({Menu,Settings}×Ventilation) ∪&#10;        (Ventilation×({Menu, Settings} ∪ Ventilation)),&#10;        FALSE↦(ModesG×{Off})}&#10;  @axm6 batteryRange = 0‥120∗60∗10&#10;end&#10;" version="3">
+    <org.eventb.core.carrierSet name="_j-R50FVzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="Modes"/>
+    <org.eventb.core.constant name="_j-R50VVzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="ModesG"/>
+    <org.eventb.core.constant name="_o4kpkFVzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="StartUp"/>
+    <org.eventb.core.constant name="_-p0vYFVzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="Start"/>
+    <org.eventb.core.constant name="_-p0vYVVzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="SelfTest"/>
+    <org.eventb.core.constant name="_-p1WcFVzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="Menu"/>
+    <org.eventb.core.constant name="_-p1WcVVzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="Settings"/>
+    <org.eventb.core.constant name="_-p1WclVzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="Ventilation"/>
+    <org.eventb.core.constant name="_-p1Wc1VzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="Off"/>
+    <org.eventb.core.constant name="_-p1WdFVzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="possTransG"/>
+    <org.eventb.core.constant name="_-p1WdVVzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="PCV"/>
+    <org.eventb.core.constant name="_-p1WdlVzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="PSV"/>
+    <org.eventb.core.constant name="_-p1Wd1VzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.identifier="batteryRange"/>
+    <org.eventb.core.axiom name="_-p1WeFVzEe-d6b80NzEjLg" org.eventb.core.generated="false" org.eventb.core.label="axm1" org.eventb.core.predicate="ModesG ⊆ Modes"/>
+    <org.eventb.core.axiom name="_nISEwFWAEe-u-IJanVu1Qg" org.eventb.core.generated="false" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(ModesG, {StartUp}, {Start}, {Menu}, {SelfTest},&#10;  &#9;&#9;&#9;&#9;&#9;&#9;  {Settings}, Ventilation, {Off})"/>
+    <org.eventb.core.axiom name="_CnhBEFWBEe-u-IJanVu1Qg" org.eventb.core.generated="false" org.eventb.core.label="axm3" org.eventb.core.predicate="partition(Ventilation, {PCV},{PSV})"/>
+    <org.eventb.core.axiom name="_CnhBEVWBEe-u-IJanVu1Qg" org.eventb.core.generated="false" org.eventb.core.label="axm4" org.eventb.core.predicate="possTransG ∈ BOOL → ℙ(ModesG×ModesG)"/>
+    <org.eventb.core.axiom name="_BaAPoFWCEe-u-IJanVu1Qg" org.eventb.core.generated="false" org.eventb.core.label="axm5" org.eventb.core.predicate="possTransG={TRUE↦{&#10;        Off↦StartUp,&#10;        StartUp↦Start&#10;        }∪&#10;        ({StartUp}×Ventilation) ∪&#10;        {Start↦Menu, Start↦SelfTest,&#10;        Menu↦Settings, SelfTest↦SelfTest,&#10;        SelfTest↦Menu, Settings↦Menu} ∪ ({Off}×Ventilation) ∪&#10;        ({Menu,Settings}×Ventilation) ∪&#10;        (Ventilation×({Menu, Settings} ∪ Ventilation)),&#10;        FALSE↦(ModesG×{Off})}"/>
+    <org.eventb.core.axiom name="_iF_IMFWDEe-u-IJanVu1Qg" org.eventb.core.generated="false" org.eventb.core.label="axm6" org.eventb.core.predicate="batteryRange = 0‥120∗60∗10"/>
+</org.eventb.core.contextFile>

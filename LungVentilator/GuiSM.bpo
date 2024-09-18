@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="Modes" org.eventb.core.type="ℙ(Modes)"/>
+        <org.eventb.core.poIdentifier name="Start" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="Settings" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="possTransG" org.eventb.core.type="ℙ(BOOL×ℙ(Modes×Modes))"/>
+        <org.eventb.core.poIdentifier name="batteryRange" org.eventb.core.type="ℙ(ℤ)"/>
+        <org.eventb.core.poIdentifier name="Menu" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="StartUp" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="Ventilation" org.eventb.core.type="ℙ(Modes)"/>
+        <org.eventb.core.poIdentifier name="PCV" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="SelfTest" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="Off" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="ModesG" org.eventb.core.type="ℙ(Modes)"/>
+        <org.eventb.core.poIdentifier name="PSV" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poPredicate name="batteryRangf" org.eventb.core.predicate="ModesG⊆Modes" org.eventb.core.source="/LungVentilator/GuiStates.buc|org.eventb.core.contextFile#GuiStates|org.eventb.core.axiom#_-p1WeFVzEe-d6b80NzEjLg"/>
+        <org.eventb.core.poPredicate name="batteryRangg" org.eventb.core.predicate="partition(ModesG,{StartUp},{Start},{Menu},{SelfTest},{Settings},Ventilation,{Off})" org.eventb.core.source="/LungVentilator/GuiStates.buc|org.eventb.core.contextFile#GuiStates|org.eventb.core.axiom#_nISEwFWAEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poPredicate name="batteryRangh" org.eventb.core.predicate="partition(Ventilation,{PCV},{PSV})" org.eventb.core.source="/LungVentilator/GuiStates.buc|org.eventb.core.contextFile#GuiStates|org.eventb.core.axiom#_CnhBEFWBEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poPredicate name="batteryRangi" org.eventb.core.predicate="possTransG∈BOOL → ℙ(ModesG × ModesG)" org.eventb.core.source="/LungVentilator/GuiStates.buc|org.eventb.core.contextFile#GuiStates|org.eventb.core.axiom#_CnhBEVWBEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poPredicate name="batteryRangj" org.eventb.core.predicate="possTransG={TRUE ↦ {Off ↦ StartUp,StartUp ↦ Start}∪({StartUp} × Ventilation)∪{Start ↦ Menu,Start ↦ SelfTest,Menu ↦ Settings,SelfTest ↦ SelfTest,SelfTest ↦ Menu,Settings ↦ Menu}∪({Off} × Ventilation)∪({Menu,Settings} × Ventilation)∪(Ventilation × ({Menu,Settings}∪Ventilation)),FALSE ↦ ModesG × {Off}}" org.eventb.core.source="/LungVentilator/GuiStates.buc|org.eventb.core.contextFile#GuiStates|org.eventb.core.axiom#_BaAPoFWCEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poPredicate name="batteryRangk" org.eventb.core.predicate="batteryRange=0 ‥ 120∗60∗10" org.eventb.core.source="/LungVentilator/GuiStates.buc|org.eventb.core.contextFile#GuiStates|org.eventb.core.axiom#_iF_IMFWDEe-u-IJanVu1Qg"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="batFail" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="switchover" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="curTime" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="onAC" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="batLev" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="modeG" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="power" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="crashed" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="inv4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeGP≠modeG⇒bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE)))∈dom(possTransG)∧possTransG∈BOOL ⇸ ℙ(Modes × Modes)" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoves">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="batLev'∈batteryRange" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'|org.eventb.core.action#_Ja5fwVWJEe-4Btg-4wQ9Ew"/>
+            <org.eventb.core.poPredicate name="(" org.eventb.core.predicate="batFail'∈BOOL" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'|org.eventb.core.action#_Ja5fyFWJEe-4Btg-4wQ9Ew"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE∈BOOL∧FALSE∈BOOL∧batLev'∈batteryRange∧0∈ℕ∧batFail'∈BOOL" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#INITIALISATION\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoves">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="batLev'∈batteryRange" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'|org.eventb.core.action#_Ja5fwVWJEe-4Btg-4wQ9Ew"/>
+            <org.eventb.core.poPredicate name="(" org.eventb.core.predicate="batFail'∈BOOL" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'|org.eventb.core.action#_Ja5fyFWJEe-4Btg-4wQ9Ew"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE=TRUE∨FALSE=FALSE∨(TRUE=FALSE∧(TRUE=FALSE∨batLev'=0∨batFail'=TRUE))⇔Off=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#INITIALISATION\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoves"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Off∈ModesG∧Off∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#INITIALISATION\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoves">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="batLev'∈batteryRange" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'|org.eventb.core.action#_Ja5fwVWJEe-4Btg-4wQ9Ew"/>
+            <org.eventb.core.poPredicate name="(" org.eventb.core.predicate="batFail'∈BOOL" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'|org.eventb.core.action#_Ja5fyFWJEe-4Btg-4wQ9Ew"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Off≠Off⇒Off ↦ Off∈possTransG(bool(FALSE=TRUE∧FALSE=FALSE∧(TRUE=TRUE∨(TRUE=TRUE∧batLev'&gt;0∧batFail'=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#INITIALISATION\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoves"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Off=Settings⇒Off∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#INITIALISATION\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/act2/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoves"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="batteryRange≠(∅ ⦂ ℙ(ℤ))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'|org.eventb.core.action#_Ja5fwVWJEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'|org.eventb.core.action#_Ja5fwVWJEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoves"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/act9/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoves"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="BOOL≠(∅ ⦂ ℙ(BOOL))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'|org.eventb.core.action#_Ja5fyFWJEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#'|org.eventb.core.action#_Ja5fyFWJEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoves"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchoves" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="onAC'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="curTime'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="batLev'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="crashed'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="batFail'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="switchover'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="power'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchoves" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchoves" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poSequent name="powerON/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovet"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="TRUE∈BOOL∧crashed∈BOOL∧batLev∈batteryRange∧curTime∈ℕ∧batFail∈BOOL" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kQFHkFWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#powerON\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="powerON/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovet"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨TRUE=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔{FALSE ↦ StartUp,TRUE ↦ Off}(crashed)=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kQFHkFWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#powerON\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="powerON/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovet"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{FALSE ↦ StartUp,TRUE ↦ Off}(crashed)∈ModesG∧modeG∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kQFHkFWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#powerON\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="powerON/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovet"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeG≠{FALSE ↦ StartUp,TRUE ↦ Off}(crashed)⇒modeG ↦ {FALSE ↦ StartUp,TRUE ↦ Off}(crashed)∈possTransG(bool(TRUE=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kQFHkFWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#powerON\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="powerON/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovet"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{FALSE ↦ StartUp,TRUE ↦ Off}(crashed)=Settings⇒modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kQFHkFWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#powerON\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="powerON/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovet"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed∈dom({FALSE ↦ StartUp,TRUE ↦ Off})∧{FALSE ↦ StartUp,TRUE ↦ Off}∈BOOL ⇸ Modes" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kQFHkFWLEe-4Btg-4wQ9Ew|org.eventb.core.action#_ROnBxFWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kQFHkFWLEe-4Btg-4wQ9Ew|org.eventb.core.action#_ROnBxFWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovet"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchovet" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="power'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchovet" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchovet" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="power=FALSE" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kQFHkFWLEe-4Btg-4wQ9Ew|org.eventb.core.guard#_ROnBwVWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE)" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kQFHkFWLEe-4Btg-4wQ9Ew|org.eventb.core.guard#_ROnBwlWLEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="powerOff/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoveu"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE∈BOOL∧crashed∈BOOL∧batLev∈batteryRange∧curTime∈ℕ∧batFail∈BOOL" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_ww7ZAFWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#powerOff\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="powerOff/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoveu"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨FALSE=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔Off=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_ww7ZAFWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#powerOff\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="powerOff/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoveu"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Off∈ModesG∧modeG∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_ww7ZAFWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#powerOff\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="powerOff/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoveu"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeG≠Off⇒modeG ↦ Off∈possTransG(bool(FALSE=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_ww7ZAFWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#powerOff\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="powerOff/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchoveu"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Off=Settings⇒modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_ww7ZAFWLEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#powerOff\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchoveu" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="power'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchoveu" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchoveu" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="power=TRUE" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_ww7ZAFWLEe-4Btg-4wQ9Ew|org.eventb.core.guard#_ww7ZAVWLEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="startUpEndedGui/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovev"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔modeg=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_YcRF0FWMEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#startUpEndedGui\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="startUpEndedGui/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovev"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg∈ModesG∧modeG∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_YcRF0FWMEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#startUpEndedGui\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="startUpEndedGui/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovev"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeG≠modeg⇒modeG ↦ modeg∈possTransG(bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_YcRF0FWMEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#startUpEndedGui\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="startUpEndedGui/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovev"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg=Settings⇒modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_YcRF0FWMEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#startUpEndedGui\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchovev" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeg" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchovev" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchovev" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="modeG=StartUp" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_YcRF0FWMEe-4Btg-4wQ9Ew|org.eventb.core.guard#_YcRF0lWMEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="modeg∈{Start}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_YcRF0FWMEe-4Btg-4wQ9Ew|org.eventb.core.guard#_YcRF01WMEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="crash/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovew"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="power∈BOOL∧TRUE∈BOOL∧batLev∈batteryRange∧curTime∈ℕ∧batFail∈BOOL" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_slZP4FWPEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#crash\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="crash/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovew"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="TRUE=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔Off=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_slZP4FWPEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#crash\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="crash/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovew"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Off∈ModesG∧Off∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_slZP4FWPEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#crash\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="crash/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovew"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Off≠Off⇒Off ↦ Off∈possTransG(bool(power=TRUE∧TRUE=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_slZP4FWPEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#crash\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="crash/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovew"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Off=Settings⇒Off∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_slZP4FWPEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#crash\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchovew" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="crashed'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchovew" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchovew" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="crashed=FALSE" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_slZP4FWPEe-4Btg-4wQ9Ew|org.eventb.core.guard#_slZP4VWPEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="repare/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovex"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="power∈BOOL∧FALSE∈BOOL∧batLev∈batteryRange∧curTime∈ℕ∧batFail∈BOOL" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-EaEcFWPEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#repare\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="repare/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovex"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔modeg=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-EaEcFWPEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#repare\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="repare/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovex"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg∈ModesG∧modeG∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-EaEcFWPEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#repare\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="repare/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovex"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeG≠modeg⇒modeG ↦ modeg∈possTransG(bool(power=TRUE∧FALSE=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-EaEcFWPEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#repare\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="repare/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovex"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg=Settings⇒modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-EaEcFWPEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#repare\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchovex" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeg" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="crashed'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchovex" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchovex" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="crashed=TRUE" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-EaEcFWPEe-4Btg-4wQ9Ew|org.eventb.core.guard#_-EaEclWPEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇒modeg=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-EaEcFWPEe-4Btg-4wQ9Ew|org.eventb.core.guard#_-EaEc1WPEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="power=TRUE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))⇒modeg=StartUp" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-EaEcFWPEe-4Btg-4wQ9Ew|org.eventb.core.guard#_nUlBEFWQEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="newPatient/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovey"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔Menu=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-50NAFWQEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#newPatient\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="newPatient/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovey"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Menu∈ModesG∧modeG∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-50NAFWQEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#newPatient\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="newPatient/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovey"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeG≠Menu⇒modeG ↦ Menu∈possTransG(bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-50NAFWQEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#newPatient\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="newPatient/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovey"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Menu=Settings⇒modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-50NAFWQEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#newPatient\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchovey" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchovey" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchovey" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="modeG=Start" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_-50NAFWQEe-4Btg-4wQ9Ew|org.eventb.core.guard#_-50NAVWQEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="resumeVent/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovez"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔SelfTest=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_Rp5A0FWREe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#resumeVent\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="resumeVent/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovez"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SelfTest∈ModesG∧modeG∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_Rp5A0FWREe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#resumeVent\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="resumeVent/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovez"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeG≠SelfTest⇒modeG ↦ SelfTest∈possTransG(bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_Rp5A0FWREe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#resumeVent\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="resumeVent/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovez"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SelfTest=Settings⇒modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_Rp5A0FWREe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#resumeVent\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchovez" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchovez" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchovez" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="modeG=SelfTest" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_Rp5A0FWREe-4Btg-4wQ9Ew|org.eventb.core.guard#_Rp5A0VWREe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="runAbortSelfTest/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔SelfTest=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_y9WlkFWREe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#runAbortSelfTest\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="runAbortSelfTest/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SelfTest∈ModesG∧modeG∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_y9WlkFWREe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#runAbortSelfTest\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="runAbortSelfTest/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeG≠SelfTest⇒modeG ↦ SelfTest∈possTransG(bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_y9WlkFWREe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#runAbortSelfTest\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="runAbortSelfTest/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SelfTest=Settings⇒modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_y9WlkFWREe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#runAbortSelfTest\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchove{" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchove{" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchove{" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="modeG=SelfTest" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_y9WlkFWREe-4Btg-4wQ9Ew|org.eventb.core.guard#_y9WlkVWREe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="selfTestPassed/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove\|"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔Menu=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_9LktEFWREe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#selfTestPassed\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="selfTestPassed/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove\|"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Menu∈ModesG∧modeG∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_9LktEFWREe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#selfTestPassed\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="selfTestPassed/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove\|"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeG≠Menu⇒modeG ↦ Menu∈possTransG(bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_9LktEFWREe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#selfTestPassed\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="selfTestPassed/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove\|"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Menu=Settings⇒modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_9LktEFWREe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#selfTestPassed\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchove|" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchove|" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchove\|" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="modeG=SelfTest" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_9LktEFWREe-4Btg-4wQ9Ew|org.eventb.core.guard#_9LktEVWREe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="setParam/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove}"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔Settings=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_i5MwAFWSEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#setParam\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="setParam/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove}"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Settings∈ModesG∧modeG∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_i5MwAFWSEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#setParam\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="setParam/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove}"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeG≠Settings⇒modeG ↦ Settings∈possTransG(bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_i5MwAFWSEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#setParam\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="setParam/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove}"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Settings=Settings⇒modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_i5MwAFWSEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#setParam\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchove}" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchove}" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchove}" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_i5MwAFWSEe-4Btg-4wQ9Ew|org.eventb.core.guard#_i5MwAVWSEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="saveBackAbort/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove~"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔modeg=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_Uuz4cFWTEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#saveBackAbort\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="saveBackAbort/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove~"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg∈ModesG∧modeG∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_Uuz4cFWTEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#saveBackAbort\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="saveBackAbort/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove~"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeG≠modeg⇒modeG ↦ modeg∈possTransG(bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_Uuz4cFWTEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#saveBackAbort\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="saveBackAbort/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchove~"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg=Settings⇒modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_Uuz4cFWTEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#saveBackAbort\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchove~" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeg" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchove~" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchove~" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="modeG=Settings∧modeg∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_Uuz4cFWTEe-4Btg-4wQ9Ew|org.eventb.core.guard#_Uuz4clWTEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="modeg∈Ventilation∪{Menu}" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_Uuz4cFWTEe-4Btg-4wQ9Ew|org.eventb.core.guard#_Uuz4c1WTEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="startStopPCVPSV/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf'"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔modeg=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_nHXkIFWTEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#startStopPCVPSV\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="startStopPCVPSV/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf'"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg∈ModesG∧modeG∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_nHXkIFWTEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#startStopPCVPSV\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="startStopPCVPSV/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf'"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeG≠modeg⇒modeG ↦ modeg∈possTransG(bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_nHXkIFWTEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#startStopPCVPSV\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="startStopPCVPSV/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf'"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg=Settings⇒modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_nHXkIFWTEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#startStopPCVPSV\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchovf'" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeg" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchovf'" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchovf'" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_nHXkIFWTEe-4Btg-4wQ9Ew|org.eventb.core.guard#_nHXkIlWTEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="modeg∈Ventilation∪{Menu}" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_nHXkIFWTEe-4Btg-4wQ9Ew|org.eventb.core.guard#_nHXkI1WTEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="modeG=Menu⇒modeg∈Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_nHXkIFWTEe-4Btg-4wQ9Ew|org.eventb.core.guard#_nHXkJFWTEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="modeG∈Ventilation⇒modeg=Menu" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_nHXkIFWTEe-4Btg-4wQ9Ew|org.eventb.core.guard#_nHXkJVWTEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="changeMode/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔modeg=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_hpKusFWWEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#changeMode\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="changeMode/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg∈ModesG∧modeG∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_hpKusFWWEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#changeMode\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="changeMode/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeG≠modeg⇒modeG ↦ modeg∈possTransG(bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_hpKusFWWEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#changeMode\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="changeMode/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg=Settings⇒modeG∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_hpKusFWWEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#changeMode\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchovf(" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeg" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchovf(" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchovf(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="modeG∈Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_hpKusFWWEe-4Btg-4wQ9Ew|org.eventb.core.guard#_hpKuslWWEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="modeg∈Ventilation∪{Settings}" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_hpKusFWWEe-4Btg-4wQ9Ew|org.eventb.core.guard#_hpKus1WWEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="failExternalPower/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(FALSE=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔modeg=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_I7L8kFWXEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#failExternalPower\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="failExternalPower/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg∈ModesG∧modegp∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_I7L8kFWXEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#failExternalPower\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="failExternalPower/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modegp≠modeg⇒modegp ↦ modeg∈possTransG(bool(power=TRUE∧crashed=FALSE∧(FALSE=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_I7L8kFWXEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#failExternalPower\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="failExternalPower/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg=Settings⇒modegp∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_I7L8kFWXEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#failExternalPower\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchovf)" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modegp" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeg" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="onAC'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchovf)" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchovf)" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="onAC=TRUE" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_I7L8kFWXEe-4Btg-4wQ9Ew|org.eventb.core.guard#_I7L8k1WXEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="modeg∈ModesG∧modegp∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_I7L8kFWXEe-4Btg-4wQ9Ew|org.eventb.core.guard#_I7L8lFWXEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="¬(power=TRUE∧crashed=FALSE)⇒modeg=Off∧modegp=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_I7L8kFWXEe-4Btg-4wQ9Ew|org.eventb.core.guard#_I7L8lVWXEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="power=TRUE∧crashed=FALSE⇒(switchover=TRUE∧batLev&gt;0∧batFail=FALSE⇒modeg=modeG∧modegp=modeGP)∧¬(switchover=TRUE∧batLev&gt;0∧batFail=FALSE⇒modeg=Off∧modegp=modeG)" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_I7L8kFWXEe-4Btg-4wQ9Ew|org.eventb.core.guard#_I7L8llWXEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="progress/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTHYPswitchovf*)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{0,batLev − step}≠(∅ ⦂ ℙ(ℤ))∧(∃b⦂ℤ·∀x⦂ℤ·x∈{0,batLev − step}⇒b≥x)" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew|org.eventb.core.guard#__KVwyFWaEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew|org.eventb.core.guard#__KVwyFWaEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTHYPswitchovf*)"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="progress/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf*"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="power∈BOOL∧crashed∈BOOL∧l∈batteryRange∧curTime+step∈ℕ∧batf∈BOOL" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#progress\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="progress/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf*"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨l=0∨batf=TRUE))⇔modeg=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#progress\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="progress/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf*"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg∈ModesG∧{TRUE ↦ modeGP,FALSE ↦ modeG}(bool(modeg=modeG))∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#progress\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="progress/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf*"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{TRUE ↦ modeGP,FALSE ↦ modeG}(bool(modeg=modeG))≠modeg⇒{TRUE ↦ modeGP,FALSE ↦ modeG}(bool(modeg=modeG)) ↦ modeg∈possTransG(bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧l&gt;0∧batf=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#progress\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="progress/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf*"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg=Settings⇒{TRUE ↦ modeGP,FALSE ↦ modeG}(bool(modeg=modeG))∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#progress\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="progress/act4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf*"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="bool(modeg=modeG)∈dom({TRUE ↦ modeGP,FALSE ↦ modeG})∧{TRUE ↦ modeGP,FALSE ↦ modeG}∈BOOL ⇸ Modes" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew|org.eventb.core.action#_O2vr41YiEe-jVcxkN20UXA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew|org.eventb.core.action#_O2vr41YiEe-jVcxkN20UXA"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf*"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchovf*" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="batf" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeg" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="step" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="l" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="curTime'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="batLev'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="batFail'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPswitchovf*)" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchovf*" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="step∈ℕ1∧l∈batteryRange∧batf∈BOOL" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew|org.eventb.core.guard#__KVwxVWaEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="batFail=TRUE⇒l=batLev" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew|org.eventb.core.guard#__KVwxlWaEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="onAC=TRUE∧batFail=FALSE⇔l=batLev+step" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew|org.eventb.core.guard#__KVwx1WaEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchovf*" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTHYPswitchovf*)" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="onAC=FALSE∧batFail=FALSE⇔l=max({0,batLev − step})" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew|org.eventb.core.guard#__KVwyFWaEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="(onAC=TRUE∨(l&gt;0∧switchover=TRUE∧batf=FALSE))∧power=TRUE∧modeG=Off∧crashed=FALSE⇒modeg=StartUp" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew|org.eventb.core.guard#_UORdkFWbEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="(l=0∨batf=TRUE∨switchover=FALSE)∧onAC=FALSE⇒modeg=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew|org.eventb.core.guard#_UORdkVWbEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="onAC=TRUE∨((l&gt;0∧batLev&gt;0)∧switchover=TRUE∧batf=FALSE)⇒modeg=modeG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#__KVwwFWaEe-4Btg-4wQ9Ew|org.eventb.core.guard#_8XrIgFYhEe-jVcxkN20UXA"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="switchoverFail/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf+"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(onAC=FALSE∧(FALSE=FALSE∨batLev=0∨batFail=TRUE))⇔modeg=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kh80EFYiEe-jVcxkN20UXA"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#switchoverFail\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="switchoverFail/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf+"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg∈ModesG∧{TRUE ↦ modeG,FALSE ↦ modeGP}(bool(modeG≠modeg))∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kh80EFYiEe-jVcxkN20UXA"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#switchoverFail\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="switchoverFail/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf+"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{TRUE ↦ modeG,FALSE ↦ modeGP}(bool(modeG≠modeg))≠modeg⇒{TRUE ↦ modeG,FALSE ↦ modeGP}(bool(modeG≠modeg)) ↦ modeg∈possTransG(bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(FALSE=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kh80EFYiEe-jVcxkN20UXA"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#switchoverFail\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="switchoverFail/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf+"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="modeg=Settings⇒{TRUE ↦ modeG,FALSE ↦ modeGP}(bool(modeG≠modeg))∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kh80EFYiEe-jVcxkN20UXA"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poSequent#switchoverFail\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="switchoverFail/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf+"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="bool(modeG≠modeg)∈dom({TRUE ↦ modeG,FALSE ↦ modeGP})∧{TRUE ↦ modeG,FALSE ↦ modeGP}∈BOOL ⇸ Modes" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kh80EFYiEe-jVcxkN20UXA|org.eventb.core.action#_kh80F1YiEe-jVcxkN20UXA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kh80EFYiEe-jVcxkN20UXA|org.eventb.core.action#_kh80F1YiEe-jVcxkN20UXA"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTALLHYPswitchovf+"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTswitchovf+" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="modeG'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeg" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="modeGP'" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="switchover'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPswitchovf+" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#EVTIDENTswitchovf+" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="switchover=TRUE" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kh80EFYiEe-jVcxkN20UXA|org.eventb.core.guard#_kh80ElYiEe-jVcxkN20UXA"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="onAC=FALSE⇒modeg=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kh80EFYiEe-jVcxkN20UXA|org.eventb.core.guard#_kh80E1YiEe-jVcxkN20UXA"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="onAC=TRUE⇒modeg=modeG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.event#_kh80EFYiEe-jVcxkN20UXA|org.eventb.core.guard#_kh80FFYiEe-jVcxkN20UXA"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPGuiStatev" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="power∈BOOL∧crashed∈BOOL∧batLev∈batteryRange∧curTime∈ℕ∧batFail∈BOOL" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_GVApuVWFEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="crashed=TRUE∨power=FALSE∨(onAC=FALSE∧(switchover=FALSE∨batLev=0∨batFail=TRUE))⇔modeG=Off" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_Z_8RUFWHEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="modeG∈ModesG∧modeGP∈ModesG" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAFWHEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/LungVentilator/GuiSM.bpo|org.eventb.core.poFile#GuiSM|org.eventb.core.poPredicateSet#HYPGuiStatev" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="modeGP≠modeG⇒modeGP ↦ modeG∈possTransG(bool(power=TRUE∧crashed=FALSE∧(onAC=TRUE∨(switchover=TRUE∧batLev&gt;0∧batFail=FALSE))))" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_0yOBAVWHEe-4Btg-4wQ9Ew"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="modeG=Settings⇒modeGP∈{Menu}∪Ventilation" org.eventb.core.source="/LungVentilator/GuiSM.bum|org.eventb.core.machineFile#GuiSM|org.eventb.core.invariant#_lfhdkFWIEe-4Btg-4wQ9Ew"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

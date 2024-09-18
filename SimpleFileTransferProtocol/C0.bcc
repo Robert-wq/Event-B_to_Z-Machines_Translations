@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase">
+    <org.eventb.core.scAxiom name="'" org.eventb.core.label="axm0_1" org.eventb.core.predicate="0&lt;n" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#_vTgb0GqfEe-pFeRHst7CIA" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="(" org.eventb.core.label="axm0_2" org.eventb.core.predicate="f∈1 ‥ n → D" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#_vThC4GqfEe-pFeRHst7CIA" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scCarrierSet name="D" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.carrierSet#_vTd_kGqfEe-pFeRHst7CIA" org.eventb.core.type="ℙ(D)"/>
+    <org.eventb.core.scConstant name="f" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#_vTf0wWqfEe-pFeRHst7CIA" org.eventb.core.type="ℙ(ℤ×D)"/>
+    <org.eventb.core.scConstant name="n" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#_vTf0wGqfEe-pFeRHst7CIA" org.eventb.core.type="ℤ"/>
+</org.eventb.core.scContextFile>

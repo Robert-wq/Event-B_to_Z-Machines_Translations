@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="Modes" org.eventb.core.type="ℙ(Modes)"/>
+        <org.eventb.core.poIdentifier name="Start" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="Settings" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="possTransG" org.eventb.core.type="ℙ(BOOL×ℙ(Modes×Modes))"/>
+        <org.eventb.core.poIdentifier name="batteryRange" org.eventb.core.type="ℙ(ℤ)"/>
+        <org.eventb.core.poIdentifier name="Menu" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="StartUp" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="Ventilation" org.eventb.core.type="ℙ(Modes)"/>
+        <org.eventb.core.poIdentifier name="PCV" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="SelfTest" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="Off" org.eventb.core.type="Modes"/>
+        <org.eventb.core.poIdentifier name="ModesG" org.eventb.core.type="ℙ(Modes)"/>
+        <org.eventb.core.poIdentifier name="PSV" org.eventb.core.type="Modes"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/LungVentilator/GuiStates.bpo|org.eventb.core.poFile#GuiStates|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="ModesG⊆Modes" org.eventb.core.source="/LungVentilator/GuiStates.buc|org.eventb.core.contextFile#GuiStates|org.eventb.core.axiom#_-p1WeFVzEe-d6b80NzEjLg"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="partition(ModesG,{StartUp},{Start},{Menu},{SelfTest},{Settings},Ventilation,{Off})" org.eventb.core.source="/LungVentilator/GuiStates.buc|org.eventb.core.contextFile#GuiStates|org.eventb.core.axiom#_nISEwFWAEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="partition(Ventilation,{PCV},{PSV})" org.eventb.core.source="/LungVentilator/GuiStates.buc|org.eventb.core.contextFile#GuiStates|org.eventb.core.axiom#_CnhBEFWBEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="possTransG∈BOOL → ℙ(ModesG × ModesG)" org.eventb.core.source="/LungVentilator/GuiStates.buc|org.eventb.core.contextFile#GuiStates|org.eventb.core.axiom#_CnhBEVWBEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="possTransG={TRUE ↦ {Off ↦ StartUp,StartUp ↦ Start}∪({StartUp} × Ventilation)∪{Start ↦ Menu,Start ↦ SelfTest,Menu ↦ Settings,SelfTest ↦ SelfTest,SelfTest ↦ Menu,Settings ↦ Menu}∪({Off} × Ventilation)∪({Menu,Settings} × Ventilation)∪(Ventilation × ({Menu,Settings}∪Ventilation)),FALSE ↦ ModesG × {Off}}" org.eventb.core.source="/LungVentilator/GuiStates.buc|org.eventb.core.contextFile#GuiStates|org.eventb.core.axiom#_BaAPoFWCEe-u-IJanVu1Qg"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="batteryRange=0 ‥ 120∗60∗10" org.eventb.core.source="/LungVentilator/GuiStates.buc|org.eventb.core.contextFile#GuiStates|org.eventb.core.axiom#_iF_IMFWDEe-u-IJanVu1Qg"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>
