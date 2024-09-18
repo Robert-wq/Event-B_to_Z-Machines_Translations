@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1724494724591" org.eventb.texttools.text_representation="machine BridgeController0 sees C0&#10;&#10;variables n&#10;&#10;invariants&#10;  @inv0_1 n ∈ ℕ&#10;  @inv0_2 n ≤ d&#10;&#10;&#10;events&#10;  event INITIALISATION&#10;    then&#10;      @act1 n ≔ 0&#10;  end&#10;&#10;  event ML_out&#10;    where&#10;      @grd1 n &lt; d&#10;    then&#10;      @act1 n ≔ n + 1&#10;  end&#10;&#10;  event ML_in&#10;    where&#10;      @grd1 0 &lt; n&#10;    then&#10;      @act1 n ≔ n − 1&#10;  end&#10;end&#10;" version="5">
+    <org.eventb.core.seesContext name="+" org.eventb.core.target="C0"/>
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="n ≔ 0" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="(" org.eventb.core.generated="false" org.eventb.core.identifier="n"/>
+    <org.eventb.core.invariant name=")" org.eventb.core.generated="false" org.eventb.core.label="inv0_1" org.eventb.core.predicate="n ∈ ℕ"/>
+    <org.eventb.core.invariant name="*" org.eventb.core.generated="false" org.eventb.core.label="inv0_2" org.eventb.core.predicate="n ≤ d"/>
+    <org.eventb.core.event name="," org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="ML_out">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="n ≔ n + 1" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="(" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="n &lt; d"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="-" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="ML_in">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="n ≔ n − 1" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="(" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="0 &lt; n"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

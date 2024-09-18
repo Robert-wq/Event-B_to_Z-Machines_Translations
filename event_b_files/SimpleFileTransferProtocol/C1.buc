@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1725454918145" org.eventb.texttools.text_representation="context C1 extends C0&#10;&#10;constants parity&#10;&#10;axioms&#10;  @axm3_1 parity ∈ ℕ → {0, 1}&#10;  @axm3_2 parity(0) = 0&#10;  @axm3_3 ∀x· x ∈ ℕ ⇒  parity(x + 1) = 1 − parity(x)&#10;&#10;theorem&#10;  @thm3_1 ∀x, y· x ∈ ℕ ∧ y ∈ ℕ ∧ x ∈ y‥y+1 ∧ parity(x) = parity(y) ⇒  x = y&#10;end&#10;" version="3">
+    <org.eventb.core.extendsContext name="'" org.eventb.core.target="C0"/>
+    <org.eventb.core.constant name="_QMA9YGq1Ee-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="parity"/>
+    <org.eventb.core.axiom name="_QMA9YWq1Ee-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="axm3_1" org.eventb.core.predicate="parity ∈ ℕ → {0, 1}"/>
+    <org.eventb.core.axiom name="_QMA9Ymq1Ee-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="axm3_2" org.eventb.core.predicate="parity(0) = 0"/>
+    <org.eventb.core.axiom name="_QMA9Y2q1Ee-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="axm3_3" org.eventb.core.predicate="∀x· x ∈ ℕ ⇒  parity(x + 1) = 1 − parity(x)"/>
+    <org.eventb.core.axiom name="_fHZXkGq1Ee-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="thm3_1" org.eventb.core.predicate="∀x, y· x ∈ ℕ ∧ y ∈ ℕ ∧ x ∈ y‥y+1 ∧ parity(x) = parity(y) ⇒  x = y" org.eventb.core.theorem="true"/>
+</org.eventb.core.contextFile>

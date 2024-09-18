@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1725448276219" org.eventb.texttools.text_representation="machine FTP1 refines FTP0  sees C0&#10;&#10;variables g r&#10;&#10;invariants&#10;  @inv1_1 r ∈ 1‥n + 1&#10;  @inv1_2 g = (1‥r−1) ◁ f&#10;&#10;variant n + 1 − r&#10;&#10;events&#10;  event INITIALISATION&#10;    then&#10;      @act1_1 g ≔ ∅&#10;      @act1_2 r ≔ 1&#10;  end&#10;&#10;  event final extends final&#10;  &#9;when&#10;  &#9;  @grd1_1 r = n + 1&#10;  end&#10;&#10;  convergent event recieve refines recieve&#10;    where&#10;      @grd0_1 g ≠ f&#10;      @grd1_1 r ≤ n&#10;    then&#10;      @act1_1 g ≔  g ∪ {r ↦ f(r)}&#10;      @act1_2 r ≔  r + 1&#10;  end&#10;end&#10;" version="5">
+    <org.eventb.core.refinesMachine name="'" org.eventb.core.target="FTP0"/>
+    <org.eventb.core.seesContext name="_m-c_8GqgEe-pFeRHst7CIA" org.eventb.core.target="C0"/>
+    <org.eventb.core.variable name="_m-c_8mqgEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="g"/>
+    <org.eventb.core.event name="_m-c_8mqgEe-pFeRHst7CIB" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_uCnw0GqhEe-pFeRHst7CIA" org.eventb.core.assignment="g ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="act1_1"/>
+        <org.eventb.core.action name="_wev1AGqhEe-pFeRHst7CIA" org.eventb.core.assignment="r ≔ 1" org.eventb.core.generated="false" org.eventb.core.label="act1_2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_m-c_8mqgEe-pFeRHst7CIC" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="final">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="final"/>
+        <org.eventb.core.guard name="_uCnJwGqhEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="grd1_1" org.eventb.core.predicate="r = n + 1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_m-c_8mqgEe-pFeRHst7CID" org.eventb.core.convergence="1" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="recieve">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="recieve"/>
+        <org.eventb.core.guard name="_8--bYmqhEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="grd0_1" org.eventb.core.predicate="g ≠ f"/>
+        <org.eventb.core.action name="_vCUTQGqhEe-pFeRHst7CIA" org.eventb.core.assignment="g ≔  g ∪ {r ↦ f(r)}" org.eventb.core.generated="false" org.eventb.core.label="act1_1"/>
+        <org.eventb.core.action name="_-HwoYGqhEe-pFeRHst7CIA" org.eventb.core.assignment="r ≔  r + 1" org.eventb.core.generated="false" org.eventb.core.label="act1_2"/>
+        <org.eventb.core.guard name="_BZEEQGqmEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="grd1_1" org.eventb.core.predicate="r ≤ n"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="_JjEDgGqhEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="r"/>
+    <org.eventb.core.invariant name="_JjEDgWqhEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="inv1_1" org.eventb.core.predicate="r ∈ 1‥n + 1"/>
+    <org.eventb.core.invariant name="_JjEDgmqhEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="inv1_2" org.eventb.core.predicate="g = (1‥r−1) ◁ f"/>
+    <org.eventb.core.variant name="_JjEDg2qhEe-pFeRHst7CIA" org.eventb.core.expression="n + 1 − r" org.eventb.core.generated="false" org.eventb.emf.persistence.variant_label="vrn"/>
+</org.eventb.core.machineFile>

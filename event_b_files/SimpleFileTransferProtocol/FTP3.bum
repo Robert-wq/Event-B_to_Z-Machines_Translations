@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1725455207115" org.eventb.texttools.text_representation="machine FTP3 refines FTP2  sees C1&#10;&#10;variables g s r d p q&#10;&#10;invariants&#10;&#9;@inv3_1 p = parity(s)&#10;&#9;@inv3_2 q = parity(r)&#10;&#10;events&#10;  event INITIALISATION extends INITIALISATION&#10;  &#9;then&#10;  &#9;  @act3_1 p ≔ 1&#10;  &#9;  @act3_2 q ≔ 1&#10;  end&#10;&#10;  event final extends final&#10;  end&#10;&#10;  event send extends send&#10;  &#9;when&#10;  &#9;  @grd3_1 p = q&#10;  &#9;  @grd3_2 s ≠ n + 1&#10;  &#9;then&#10;  &#9;  @act3_1 p ≔  1 − p&#10;  end&#10;&#10;  event recieve extends recieve&#10;  &#9;when&#10;&#9;  @grd3_1 p ≠ q&#10;&#9;then&#10;  &#9;  @act3_1 q ≔ 1 − q&#10;  end&#10;end&#10;" version="5">
+    <org.eventb.core.refinesMachine name="'" org.eventb.core.target="FTP2"/>
+    <org.eventb.core.seesContext name="_wGCC8Gq1Ee-pFeRHst7CIA" org.eventb.core.target="C1"/>
+    <org.eventb.core.variable name="_m-c_8mqgEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="g"/>
+    <org.eventb.core.variable name="_iT8w8GqmEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="s"/>
+    <org.eventb.core.variable name="_JjEDgGqhEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="r"/>
+    <org.eventb.core.variable name="_iT8w8WqmEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="d"/>
+    <org.eventb.core.event name="_m-c_8mqgEe-pFeRHst7CIB" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_xMP5kGq0Ee-pFeRHst7CIA" org.eventb.core.assignment="p ≔ 1" org.eventb.core.generated="false" org.eventb.core.label="act3_1"/>
+        <org.eventb.core.action name="_xMP5kWq0Ee-pFeRHst7CIA" org.eventb.core.assignment="q ≔ 1" org.eventb.core.generated="false" org.eventb.core.label="act3_2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_m-c_8mqgEe-pFeRHst7CIC" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="final">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="final"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_m-c_8mqgEe-pFeRHst7CID" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="send">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="send"/>
+        <org.eventb.core.guard name="_KLODIGq2Ee-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="grd3_1" org.eventb.core.predicate="p = q"/>
+        <org.eventb.core.guard name="_KLODIWq2Ee-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="grd3_2" org.eventb.core.predicate="s ≠ n + 1"/>
+        <org.eventb.core.action name="_KLODImq2Ee-pFeRHst7CIA" org.eventb.core.assignment="p ≔  1 − p" org.eventb.core.generated="false" org.eventb.core.label="act3_1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_m-c_8mqgEe-pFeRHst7CIE" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="recieve">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="recieve"/>
+        <org.eventb.core.guard name="_KLODI2q2Ee-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="grd3_1" org.eventb.core.predicate="p ≠ q"/>
+        <org.eventb.core.action name="_KLODJGq2Ee-pFeRHst7CIA" org.eventb.core.assignment="q ≔ 1 − q" org.eventb.core.generated="false" org.eventb.core.label="act3_1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="_xMQgoGq0Ee-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="p"/>
+    <org.eventb.core.variable name="_xMQgoWq0Ee-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="q"/>
+    <org.eventb.core.invariant name="_xMQgomq0Ee-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="inv3_1" org.eventb.core.predicate="p = parity(s)"/>
+    <org.eventb.core.invariant name="_xMQgo2q0Ee-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="inv3_2" org.eventb.core.predicate="q = parity(r)"/>
+</org.eventb.core.machineFile>

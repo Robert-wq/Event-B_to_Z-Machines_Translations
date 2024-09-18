@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="STATUS" org.eventb.core.type="ℙ(STATUS)"/>
+        <org.eventb.core.poIdentifier name="working" org.eventb.core.type="STATUS"/>
+        <org.eventb.core.poIdentifier name="stopped" org.eventb.core.type="STATUS"/>
+        <org.eventb.core.poPredicate name="workinh" org.eventb.core.predicate="STATUS={stopped,working}" org.eventb.core.source="/MechanicalPress/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#*"/>
+        <org.eventb.core.poPredicate name="workini" org.eventb.core.predicate="stopped≠working" org.eventb.core.source="/MechanicalPress/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#+"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="start_motor_button" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="stop_motor_impulse" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="motor_actuator" org.eventb.core.type="STATUS"/>
+        <org.eventb.core.poIdentifier name="clutch_actuator" org.eventb.core.type="STATUS"/>
+        <org.eventb.core.poIdentifier name="clutch_sensor" org.eventb.core.type="STATUS"/>
+        <org.eventb.core.poIdentifier name="motor_sensor" org.eventb.core.type="STATUS"/>
+        <org.eventb.core.poIdentifier name="start_motor_impulse" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="stop_motor_button" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poPredicate name="start_motor_impulsf" org.eventb.core.predicate="motor_sensor∈STATUS" org.eventb.core.source="/MechanicalPress/MechanicalPress0.bum|org.eventb.core.machineFile#MechanicalPress0|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poPredicate name="start_motor_impulsg" org.eventb.core.predicate="motor_actuator∈STATUS" org.eventb.core.source="/MechanicalPress/MechanicalPress0.bum|org.eventb.core.machineFile#MechanicalPress0|org.eventb.core.invariant#+"/>
+        <org.eventb.core.poPredicate name="start_motor_impulsh" org.eventb.core.predicate="stop_motor_button∈BOOL" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.invariant#:"/>
+        <org.eventb.core.poPredicate name="start_motor_impulsi" org.eventb.core.predicate="start_motor_button∈BOOL" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.invariant#;"/>
+        <org.eventb.core.poPredicate name="start_motor_impulsj" org.eventb.core.predicate="start_motor_impulse∈BOOL" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.invariant#&gt;"/>
+        <org.eventb.core.poPredicate name="start_motor_impulsk" org.eventb.core.predicate="stop_motor_impulse∈BOOL" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.invariant#="/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsf" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motor_actuator'" org.eventb.core.type="STATUS"/>
+        <org.eventb.core.poIdentifier name="start_motor_button'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="stop_motor_impulse'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="clutch_sensor'" org.eventb.core.type="STATUS"/>
+        <org.eventb.core.poIdentifier name="clutch_actuator'" org.eventb.core.type="STATUS"/>
+        <org.eventb.core.poIdentifier name="stop_motor_button'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="start_motor_impulse'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="motor_sensor'" org.eventb.core.type="STATUS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsf" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsf" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsg" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motor_actuator'" org.eventb.core.type="STATUS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsg" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsg" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="motor_actuator=stopped" org.eventb.core.source="/MechanicalPress/MechanicalPress0.bum|org.eventb.core.machineFile#MechanicalPress0|org.eventb.core.event#,|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="motor_sensor=stopped" org.eventb.core.source="/MechanicalPress/MechanicalPress0.bum|org.eventb.core.machineFile#MechanicalPress0|org.eventb.core.event#,|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsh" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motor_actuator'" org.eventb.core.type="STATUS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsh" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsh" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="motor_actuator=working" org.eventb.core.source="/MechanicalPress/MechanicalPress0.bum|org.eventb.core.machineFile#MechanicalPress0|org.eventb.core.event#-|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="motor_sensor=working" org.eventb.core.source="/MechanicalPress/MechanicalPress0.bum|org.eventb.core.machineFile#MechanicalPress0|org.eventb.core.event#-|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsi" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motor_sensor'" org.eventb.core.type="STATUS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsi" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsi" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="motor_sensor=stopped" org.eventb.core.source="/MechanicalPress/MechanicalPress0.bum|org.eventb.core.machineFile#MechanicalPress0|org.eventb.core.event#.|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="motor_actuator=working" org.eventb.core.source="/MechanicalPress/MechanicalPress0.bum|org.eventb.core.machineFile#MechanicalPress0|org.eventb.core.event#.|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsj" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motor_sensor'" org.eventb.core.type="STATUS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsj" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsj" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="motor_sensor=working" org.eventb.core.source="/MechanicalPress/MechanicalPress0.bum|org.eventb.core.machineFile#MechanicalPress0|org.eventb.core.event#\/|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="motor_actuator=stopped" org.eventb.core.source="/MechanicalPress/MechanicalPress0.bum|org.eventb.core.machineFile#MechanicalPress0|org.eventb.core.event#\/|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsk" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="start_motor_button'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsk" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsk" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="start_motor_button=FALSE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#@|org.eventb.core.guard#'"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsl" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="start_motor_button'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsl" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsl" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="start_motor_button=TRUE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#?|org.eventb.core.guard#'"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsm" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motor_actuator'" org.eventb.core.type="STATUS"/>
+        <org.eventb.core.poIdentifier name="start_motor_impulse'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsm" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsm" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="start_motor_impulse=FALSE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#B|org.eventb.core.guard#("/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="start_motor_button=TRUE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#B|org.eventb.core.guard#)"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="motor_actuator=stopped" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#B|org.eventb.core.guard#*"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="motor_sensor=stopped" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#B|org.eventb.core.guard#+"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsn" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="start_motor_impulse'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsn" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsn" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="start_motor_impulse=TRUE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#A|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="start_motor_button=FALSE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#A|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulso" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="stop_motor_button'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulso" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulso" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="stop_motor_button=FALSE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#D|org.eventb.core.guard#'"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsp" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="stop_motor_button'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsp" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsp" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="stop_motor_button=TRUE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#C|org.eventb.core.guard#'"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsq" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motor_actuator'" org.eventb.core.type="STATUS"/>
+        <org.eventb.core.poIdentifier name="stop_motor_impulse'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsq" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsq" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="stop_motor_impulse=FALSE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#F|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="stop_motor_button=TRUE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#F|org.eventb.core.guard#*"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="motor_sensor=working" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#F|org.eventb.core.guard#+"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="motor_actuator=working" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#F|org.eventb.core.guard#,"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsr" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="stop_motor_impulse'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsr" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsr" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="stop_motor_impulse=TRUE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#E|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="stop_motor_button=FALSE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#E|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulss" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="start_motor_impulse'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulss" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulss" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="start_motor_impulse=FALSE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#G|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="start_motor_button=TRUE" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#G|org.eventb.core.guard#("/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="¬(motor_actuator=stopped∧motor_sensor=stopped)" org.eventb.core.source="/MechanicalPress/MechanicalPress1.bum|org.eventb.core.machineFile#MechanicalPress1|org.eventb.core.event#G|org.eventb.core.guard#)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulst" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="clutch_actuator'" org.eventb.core.type="STATUS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulst" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulst" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="clutch_actuator=stopped" org.eventb.core.source="/MechanicalPress/MechanicalPress2.bum|org.eventb.core.machineFile#MechanicalPress2|org.eventb.core.event#_62rpE1lREe-a2d8N8Pnn4g|org.eventb.core.guard#_62rpFFlREe-a2d8N8Pnn4g"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="clutch_sensor=stopped" org.eventb.core.source="/MechanicalPress/MechanicalPress2.bum|org.eventb.core.machineFile#MechanicalPress2|org.eventb.core.event#_62rpE1lREe-a2d8N8Pnn4g|org.eventb.core.guard#_62rpFVlREe-a2d8N8Pnn4g"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsu" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="clutch_actuator'" org.eventb.core.type="STATUS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsu" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsu" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="clutch_actuator=working" org.eventb.core.source="/MechanicalPress/MechanicalPress2.bum|org.eventb.core.machineFile#MechanicalPress2|org.eventb.core.event#_62rpF1lREe-a2d8N8Pnn4g|org.eventb.core.guard#_62rpGFlREe-a2d8N8Pnn4g"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="clutch_sensor=working" org.eventb.core.source="/MechanicalPress/MechanicalPress2.bum|org.eventb.core.machineFile#MechanicalPress2|org.eventb.core.event#_62rpF1lREe-a2d8N8Pnn4g|org.eventb.core.guard#_62rpGVlREe-a2d8N8Pnn4g"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsv" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="clutch_sensor'" org.eventb.core.type="STATUS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsv" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsv" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="clutch_sensor=stopped" org.eventb.core.source="/MechanicalPress/MechanicalPress2.bum|org.eventb.core.machineFile#MechanicalPress2|org.eventb.core.event#_62rpG1lREe-a2d8N8Pnn4g|org.eventb.core.guard#_62rpHFlREe-a2d8N8Pnn4g"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="clutch_actuator=working" org.eventb.core.source="/MechanicalPress/MechanicalPress2.bum|org.eventb.core.machineFile#MechanicalPress2|org.eventb.core.event#_62rpG1lREe-a2d8N8Pnn4g|org.eventb.core.guard#_62rpHVlREe-a2d8N8Pnn4g"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTstart_motor_impulsw" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="clutch_sensor'" org.eventb.core.type="STATUS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPstart_motor_impulsw" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#EVTIDENTstart_motor_impulsw" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="clutch_sensor=working" org.eventb.core.source="/MechanicalPress/MechanicalPress2.bum|org.eventb.core.machineFile#MechanicalPress2|org.eventb.core.event#_62rpH1lREe-a2d8N8Pnn4g|org.eventb.core.guard#_62rpIFlREe-a2d8N8Pnn4g"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="clutch_actuator=stopped" org.eventb.core.source="/MechanicalPress/MechanicalPress2.bum|org.eventb.core.machineFile#MechanicalPress2|org.eventb.core.event#_62rpH1lREe-a2d8N8Pnn4g|org.eventb.core.guard#_62rpIVlREe-a2d8N8Pnn4g"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/MechanicalPress/MechanicalPress2.bpo|org.eventb.core.poFile#MechanicalPress2|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="clutch_sensor∈STATUS" org.eventb.core.source="/MechanicalPress/MechanicalPress2.bum|org.eventb.core.machineFile#MechanicalPress2|org.eventb.core.invariant#_HCGdEFlSEe-a2d8N8Pnn4g"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="clutch_actuator∈STATUS" org.eventb.core.source="/MechanicalPress/MechanicalPress2.bum|org.eventb.core.machineFile#MechanicalPress2|org.eventb.core.invariant#_HCGdEVlSEe-a2d8N8Pnn4g"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

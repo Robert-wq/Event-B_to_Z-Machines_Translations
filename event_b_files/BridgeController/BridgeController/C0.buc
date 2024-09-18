@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1725786415882" org.eventb.texttools.text_representation="context C0&#10;&#10;constants d // max cars allowed on island bridge component&#10;&#10;axioms&#10;  @axm0_1 d ∈ ℕ&#10;  @axm0_2 d &gt; 0&#10;end&#10;" version="3">
+    <org.eventb.core.constant name="'" org.eventb.core.comment="max cars allowed on island bridge component" org.eventb.core.generated="false" org.eventb.core.identifier="d"/>
+    <org.eventb.core.axiom name="(" org.eventb.core.generated="false" org.eventb.core.label="axm0_1" org.eventb.core.predicate="d ∈ ℕ"/>
+    <org.eventb.core.axiom name=")" org.eventb.core.generated="false" org.eventb.core.label="axm0_2" org.eventb.core.predicate="d &gt; 0"/>
+</org.eventb.core.contextFile>

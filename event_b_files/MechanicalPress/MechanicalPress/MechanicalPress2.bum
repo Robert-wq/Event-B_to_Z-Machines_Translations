@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1723543619364" org.eventb.texttools.text_representation="machine MechanicalPress2 refines MechanicalPress1  sees C0&#10;&#10;variables&#10;&#9;motor_actuator&#10;&#9;motor_sensor&#10;&#9;start_motor_button&#10;&#9;stop_motor_button&#10;&#9;start_motor_impulse&#10;&#9;stop_motor_impulse&#10;&#9;clutch_actuator&#10;&#9;clutch_sensor&#10;&#10;invariants&#10;  @inv0_1 clutch_sensor ∈ STATUS&#10;  @inv0_2 clutch_actuator ∈ STATUS&#10;&#10;events&#10;  event INITIALISATION extends INITIALISATION&#10;  &#9;then&#10;&#9;  @act2_1 clutch_actuator ≔ stopped&#10;      @act2_2 clutch_sensor ≔ stopped&#10;  end&#10;&#10;  event treat_start_motor extends treat_start_motor&#10;  end&#10;&#10;  event treat_stop_motor extends treat_stop_motor&#10;  end&#10;&#10;  event Motor_start extends Motor_start&#10;  end&#10;&#10;  event Motor_stop extends Motor_stop&#10;  end&#10;&#10;  event push_start_motor_button extends push_start_motor_button&#10;  end&#10;&#10;  event release_start_motor_button extends release_start_motor_button&#10;  end&#10;&#10;  event treat_push_start_motor_button extends treat_push_start_motor_button&#10;  end&#10;&#10;  event treat_release_start_motor_button extends treat_release_start_motor_button&#10;  end&#10;&#10;  event push_stop_motor_button extends push_stop_motor_button&#10;  end&#10;&#10;  event release_stop_motor_button extends release_stop_motor_button&#10;  end&#10;&#10;  event treat_push_stop_motor_button extends treat_push_stop_motor_button&#10;  end&#10;&#10;  event treat_release_stop_motor_button extends treat_release_stop_motor_button&#10;  end&#10;&#10;  event treat_push_start_motor_button_false extends treat_push_start_motor_button_false&#10;  end&#10;&#10;  event treat_start_clutch&#10;    where&#10;      @grd1 clutch_actuator = stopped&#10;      @grd2 clutch_sensor = stopped&#10;    then&#10;      @act1 clutch_actuator ≔ working&#10;  end&#10;&#10;  event treat_stop_clutch&#10;    where&#10;      @grd1 clutch_actuator = working&#10;      @grd2 clutch_sensor = working&#10;    then&#10;      @act1 clutch_actuator ≔ stopped&#10;  end&#10;&#10;  event Clutch_start&#10;    where&#10;      @grd1 clutch_sensor = stopped&#10;      @grd2 clutch_actuator = working&#10;    then&#10;      @act1 clutch_sensor ≔ working&#10;  end&#10;&#10;  event Clutch_stop&#10;    where&#10;      @grd1 clutch_sensor = working&#10;      @grd2 clutch_actuator = stopped&#10;    then&#10;      @act1 clutch_sensor ≔ stopped&#10;  end&#10;&#10;end&#10;" version="5">
+    <org.eventb.core.refinesMachine name="'" org.eventb.core.target="MechanicalPress1"/>
+    <org.eventb.core.seesContext name="0" org.eventb.core.target="C0"/>
+    <org.eventb.core.variable name="(" org.eventb.core.generated="false" org.eventb.core.identifier="motor_actuator"/>
+    <org.eventb.core.variable name=")" org.eventb.core.generated="false" org.eventb.core.identifier="motor_sensor"/>
+    <org.eventb.core.variable name="6" org.eventb.core.generated="false" org.eventb.core.identifier="start_motor_button"/>
+    <org.eventb.core.variable name="7" org.eventb.core.generated="false" org.eventb.core.identifier="stop_motor_button"/>
+    <org.eventb.core.variable name="8" org.eventb.core.generated="false" org.eventb.core.identifier="start_motor_impulse"/>
+    <org.eventb.core.variable name="9" org.eventb.core.generated="false" org.eventb.core.identifier="stop_motor_impulse"/>
+    <org.eventb.core.event name=":" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_ZZ2bAFlTEe-a2d8N8Pnn4g" org.eventb.core.assignment="clutch_actuator ≔ stopped" org.eventb.core.generated="false" org.eventb.core.label="act2_1"/>
+        <org.eventb.core.action name="_ZZ2bAVlTEe-a2d8N8Pnn4g" org.eventb.core.assignment="clutch_sensor ≔ stopped" org.eventb.core.generated="false" org.eventb.core.label="act2_2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name=";" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="treat_start_motor">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="treat_start_motor"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="=" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="treat_stop_motor">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="treat_stop_motor"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="Motor_start">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Motor_start"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="?" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="Motor_stop">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Motor_stop"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="@" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="push_start_motor_button">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="push_start_motor_button"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="A" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="release_start_motor_button">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="release_start_motor_button"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="B" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="treat_push_start_motor_button">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="treat_push_start_motor_button"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="C" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="treat_release_start_motor_button">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="treat_release_start_motor_button"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="D" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="push_stop_motor_button">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="push_stop_motor_button"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="E" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="release_stop_motor_button">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="release_stop_motor_button"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="F" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="treat_push_stop_motor_button">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="treat_push_stop_motor_button"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="G" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="treat_release_stop_motor_button">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="treat_release_stop_motor_button"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="H" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="treat_push_start_motor_button_false">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="treat_push_start_motor_button_false"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="_62rCAFlREe-a2d8N8Pnn4g" org.eventb.core.generated="false" org.eventb.core.identifier="clutch_actuator"/>
+    <org.eventb.core.variable name="_62rCAVlREe-a2d8N8Pnn4g" org.eventb.core.generated="false" org.eventb.core.identifier="clutch_sensor"/>
+    <org.eventb.core.event name="_62rpE1lREe-a2d8N8Pnn4g" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="treat_start_clutch">
+        <org.eventb.core.guard name="_62rpFFlREe-a2d8N8Pnn4g" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="clutch_actuator = stopped"/>
+        <org.eventb.core.guard name="_62rpFVlREe-a2d8N8Pnn4g" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="clutch_sensor = stopped"/>
+        <org.eventb.core.action name="_62qa8FlREe-a2d8N8Pnn4g" org.eventb.core.assignment="clutch_actuator ≔ working" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_62rpF1lREe-a2d8N8Pnn4g" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="treat_stop_clutch">
+        <org.eventb.core.guard name="_62rpGFlREe-a2d8N8Pnn4g" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="clutch_actuator = working"/>
+        <org.eventb.core.guard name="_62rpGVlREe-a2d8N8Pnn4g" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="clutch_sensor = working"/>
+        <org.eventb.core.action name="_62rpFllREe-a2d8N8Pnn4g" org.eventb.core.assignment="clutch_actuator ≔ stopped" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_62rpG1lREe-a2d8N8Pnn4g" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="Clutch_start">
+        <org.eventb.core.guard name="_62rpHFlREe-a2d8N8Pnn4g" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="clutch_sensor = stopped"/>
+        <org.eventb.core.guard name="_62rpHVlREe-a2d8N8Pnn4g" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="clutch_actuator = working"/>
+        <org.eventb.core.action name="_62rpGllREe-a2d8N8Pnn4g" org.eventb.core.assignment="clutch_sensor ≔ working" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_62rpH1lREe-a2d8N8Pnn4g" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="Clutch_stop">
+        <org.eventb.core.guard name="_62rpIFlREe-a2d8N8Pnn4g" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="clutch_sensor = working"/>
+        <org.eventb.core.guard name="_62rpIVlREe-a2d8N8Pnn4g" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="clutch_actuator = stopped"/>
+        <org.eventb.core.action name="_62rpHllREe-a2d8N8Pnn4g" org.eventb.core.assignment="clutch_sensor ≔ stopped" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.invariant name="_HCGdEFlSEe-a2d8N8Pnn4g" org.eventb.core.generated="false" org.eventb.core.label="inv0_1" org.eventb.core.predicate="clutch_sensor ∈ STATUS"/>
+    <org.eventb.core.invariant name="_HCGdEVlSEe-a2d8N8Pnn4g" org.eventb.core.generated="false" org.eventb.core.label="inv0_2" org.eventb.core.predicate="clutch_actuator ∈ STATUS"/>
+</org.eventb.core.machineFile>

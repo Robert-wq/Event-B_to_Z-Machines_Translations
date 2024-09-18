@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="D" org.eventb.core.type="ℙ(D)"/>
+        <org.eventb.core.poIdentifier name="f" org.eventb.core.type="ℙ(ℤ×D)"/>
+        <org.eventb.core.poIdentifier name="n" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poPredicate name="o" org.eventb.core.predicate="0&lt;n" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#_vTgb0GqfEe-pFeRHst7CIA"/>
+        <org.eventb.core.poPredicate name="p" org.eventb.core.predicate="f∈1 ‥ n → D" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#_vThC4GqfEe-pFeRHst7CIA"/>
+        <org.eventb.core.poIdentifier name="parity" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="axm3_2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Axiom" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#HYPC1"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈dom(parity)∧parity∈ℤ ⇸ ℤ" org.eventb.core.source="/SimpleFileTransferProtocol/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#_QMA9Ymq1Ee-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#_QMA9Ymq1Ee-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#HYPC1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="axm3_3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Axiom" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#HYPC2"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℤ·x∈ℕ⇒x+1∈dom(parity)∧parity∈ℤ ⇸ ℤ∧x∈dom(parity)" org.eventb.core.source="/SimpleFileTransferProtocol/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#_QMA9Y2q1Ee-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#_QMA9Y2q1Ee-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#HYPC2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="thm3_1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Theorem" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#HYPC3"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℤ,y⦂ℤ·x∈ℕ∧y∈ℕ∧x∈y ‥ y+1⇒x∈dom(parity)∧parity∈ℤ ⇸ ℤ∧y∈dom(parity)" org.eventb.core.source="/SimpleFileTransferProtocol/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#_fHZXkGq1Ee-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#_fHZXkGq1Ee-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#HYPC3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="thm3_1/THM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Theorem" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#HYPC3"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℤ,y⦂ℤ·x∈ℕ∧y∈ℕ∧x∈y ‥ y+1∧parity(x)=parity(y)⇒x=y" org.eventb.core.source="/SimpleFileTransferProtocol/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#_fHZXkGq1Ee-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#_fHZXkGq1Ee-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#HYPC3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="HYPC1" org.eventb.core.parentSet="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="parity∈ℕ → {0,1}" org.eventb.core.source="/SimpleFileTransferProtocol/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#_QMA9YWq1Ee-pFeRHst7CIA"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPC2" org.eventb.core.parentSet="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#HYPC1" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="parity(0)=0" org.eventb.core.source="/SimpleFileTransferProtocol/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#_QMA9Ymq1Ee-pFeRHst7CIA"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPC3" org.eventb.core.parentSet="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#HYPC2" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="∀x⦂ℤ·x∈ℕ⇒parity(x+1)=1 − parity(x)" org.eventb.core.source="/SimpleFileTransferProtocol/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#_QMA9Y2q1Ee-pFeRHst7CIA"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#HYPC3" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="∀x⦂ℤ,y⦂ℤ·x∈ℕ∧y∈ℕ∧x∈y ‥ y+1∧parity(x)=parity(y)⇒x=y" org.eventb.core.source="/SimpleFileTransferProtocol/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#_fHZXkGq1Ee-pFeRHst7CIA"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

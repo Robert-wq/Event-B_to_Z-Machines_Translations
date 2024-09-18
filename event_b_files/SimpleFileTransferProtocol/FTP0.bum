@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1725446528657" org.eventb.texttools.text_representation="machine FTP0 sees C0&#10;&#10;variables g&#10;&#10;invariants&#10;  @inv0_1 g ∈ ℕ ↔ D&#10;&#10;events&#10;  event INITIALISATION&#10;  then&#10;    @act0_1 g :∈ ℕ ↔ D&#10;  end&#10;&#10;  event final&#10;  when&#10;  &#9;@grd0_1 g = f&#10;  end&#10;&#10;  event recieve&#10; &#9;when&#10; &#9;&#9;@grd0_1 g ≠ f&#10; &#9;then&#10; &#9;&#9;@act0_1 g :∈ ℕ ↔ D&#10; &#9;end&#10;end&#10;" version="5">
+    <org.eventb.core.seesContext name="_m-c_8GqgEe-pFeRHst7CIA" org.eventb.core.target="C0"/>
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_8--bYGqhEe-pFeRHst7CIA" org.eventb.core.assignment="g :∈ ℕ ↔ D" org.eventb.core.generated="false" org.eventb.core.label="act0_1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="_m-c_8mqgEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.identifier="g"/>
+    <org.eventb.core.invariant name="_m-dnAGqgEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="inv0_1" org.eventb.core.predicate="g ∈ ℕ ↔ D"/>
+    <org.eventb.core.event name="_m-dnAWqgEe-pFeRHst7CIA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="final">
+        <org.eventb.core.guard name="_8--bYWqhEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="grd0_1" org.eventb.core.predicate="g = f"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_m-dnBGqgEe-pFeRHst7CIA" org.eventb.core.convergence="2" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="recieve">
+        <org.eventb.core.guard name="_8--bYmqhEe-pFeRHst7CIA" org.eventb.core.generated="false" org.eventb.core.label="grd0_1" org.eventb.core.predicate="g ≠ f"/>
+        <org.eventb.core.action name="_8--bY2qhEe-pFeRHst7CIA" org.eventb.core.assignment="g :∈ ℕ ↔ D" org.eventb.core.generated="false" org.eventb.core.label="act0_1"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

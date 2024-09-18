@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="D" org.eventb.core.type="ℙ(D)"/>
+        <org.eventb.core.poIdentifier name="f" org.eventb.core.type="ℙ(ℤ×D)"/>
+        <org.eventb.core.poIdentifier name="n" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poPredicate name="o" org.eventb.core.predicate="0&lt;n" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#_vTgb0GqfEe-pFeRHst7CIA"/>
+        <org.eventb.core.poPredicate name="p" org.eventb.core.predicate="f∈1 ‥ n → D" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#_vThC4GqfEe-pFeRHst7CIA"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="d" org.eventb.core.type="D"/>
+        <org.eventb.core.poIdentifier name="g" org.eventb.core.type="ℙ(ℤ×D)"/>
+        <org.eventb.core.poIdentifier name="r" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="s" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poPredicate name="t" org.eventb.core.predicate="g∈ℕ ↔ D" org.eventb.core.source="/SimpleFileTransferProtocol/FTP0.bum|org.eventb.core.machineFile#FTP0|org.eventb.core.invariant#_m-dnAGqgEe-pFeRHst7CIA"/>
+        <org.eventb.core.poPredicate name="u" org.eventb.core.predicate="r∈1 ‥ n+1" org.eventb.core.source="/SimpleFileTransferProtocol/FTP1.bum|org.eventb.core.machineFile#FTP1|org.eventb.core.invariant#_JjEDgWqhEe-pFeRHst7CIA"/>
+        <org.eventb.core.poPredicate name="v" org.eventb.core.predicate="g=1 ‥ r − 1 ◁ f" org.eventb.core.source="/SimpleFileTransferProtocol/FTP1.bum|org.eventb.core.machineFile#FTP1|org.eventb.core.invariant#_JjEDgmqhEe-pFeRHst7CIA"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="inv2_3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#HYPC5"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s=r+1⇒r∈dom(f)∧f∈ℤ ⇸ D" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT9YAGqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT9YAGqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#HYPC5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv2_1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC8"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="1≤n+1" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT8w8mqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP1.bum|org.eventb.core.machineFile#FTP1|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CIB"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CIB"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT8w8mqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poSequent#INITIALISATION\/inv2_1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#HYPC5|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv2_2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC8"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="1∈1 ‥ 1+1" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT8w82qmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP1.bum|org.eventb.core.machineFile#FTP1|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CIB"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CIB"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT8w82qmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poSequent#INITIALISATION\/inv2_2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#HYPC5|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv2_3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC8">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="d'∈D" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CIB|org.eventb.core.action#_Jh-2sGqnEe-pFeRHst7CIA"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="1=1+1⇒d'=f(1)" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT9YAGqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP1.bum|org.eventb.core.machineFile#FTP1|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CIB"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CIB"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT9YAGqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poSequent#INITIALISATION\/inv2_3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/act2_4/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC8"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="D≠(∅ ⦂ ℙ(D))" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CIB|org.eventb.core.action#_Jh-2sGqnEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CIB|org.eventb.core.action#_Jh-2sGqnEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC8"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTC8" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="r'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="s'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="g'" org.eventb.core.type="ℙ(ℤ×D)"/>
+        <org.eventb.core.poIdentifier name="d'" org.eventb.core.type="D"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPC8" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTIDENTC8" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPC9" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="g=f" org.eventb.core.source="/SimpleFileTransferProtocol/FTP0.bum|org.eventb.core.machineFile#FTP0|org.eventb.core.event#_m-dnAWqgEe-pFeRHst7CIA|org.eventb.core.guard#_8--bYWqhEe-pFeRHst7CIA"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="r=n+1" org.eventb.core.source="/SimpleFileTransferProtocol/FTP1.bum|org.eventb.core.machineFile#FTP1|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CIC|org.eventb.core.guard#_uCnJwGqhEe-pFeRHst7CIA"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="send/inv2_1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC:"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s+1≤n+1" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT8w8mqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_Jh-2sWqnEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT8w8mqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poSequent#send\/inv2_1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#HYPC5|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="send/inv2_2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC:"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s+1∈r ‥ r+1" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT8w82qmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_Jh-2sWqnEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT8w82qmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poSequent#send\/inv2_2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#HYPC5|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="send/inv2_3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC:"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s+1=r+1⇒f(s)=f(r)" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT9YAGqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_Jh-2sWqnEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT9YAGqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poSequent#send\/inv2_3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="send/act2_1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC:"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(f)∧f∈ℤ ⇸ D" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_Jh-2sWqnEe-pFeRHst7CIA|org.eventb.core.action#_Jh-2tGqnEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_Jh-2sWqnEe-pFeRHst7CIA|org.eventb.core.action#_Jh-2tGqnEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC:"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="send/NAT" org.eventb.core.accurate="true" org.eventb.core.poDesc="Natural number variant of event" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC:"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="r+1 − s∈ℕ" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.variant#_iT9YAWqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_Jh-2sWqnEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.variant#_iT9YAWqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poSequent#send\/NAT|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="send/VAR" org.eventb.core.accurate="true" org.eventb.core.poDesc="Variant of event" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC:"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="r+1 − (s+1)&lt;r+1 − s" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.variant#_iT9YAWqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_Jh-2sWqnEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.variant#_iT9YAWqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poSequent#send\/VAR|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTC:" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="s'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="d'" org.eventb.core.type="D"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPC:" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTIDENTC:" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s=r" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_Jh-2sWqnEe-pFeRHst7CIA|org.eventb.core.guard#_Jh-2smqnEe-pFeRHst7CIA"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="r≠n+1" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_Jh-2sWqnEe-pFeRHst7CIA|org.eventb.core.guard#_Jh-2s2qnEe-pFeRHst7CIA"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="recieve/inv2_2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC;"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈r+1 ‥ (r+1)+1" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT8w82qmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP1.bum|org.eventb.core.machineFile#FTP1|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CID"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CID"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT8w82qmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poSequent#recieve\/inv2_2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#HYPC5|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="recieve/inv2_3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTALLHYPC;"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s=(r+1)+1⇒d=f(r+1)" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT9YAGqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP1.bum|org.eventb.core.machineFile#FTP1|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CID"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CID"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT9YAGqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poSequent#recieve\/inv2_3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTC;" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="r'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="g'" org.eventb.core.type="ℙ(ℤ×D)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPC;" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#EVTIDENTC;" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="g≠f" org.eventb.core.source="/SimpleFileTransferProtocol/FTP1.bum|org.eventb.core.machineFile#FTP1|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CID|org.eventb.core.guard#_8--bYmqhEe-pFeRHst7CIA"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="r≤n" org.eventb.core.source="/SimpleFileTransferProtocol/FTP1.bum|org.eventb.core.machineFile#FTP1|org.eventb.core.event#_m-c_8mqgEe-pFeRHst7CID|org.eventb.core.guard#_BZEEQGqmEe-pFeRHst7CIA"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPC5" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s≤n+1" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT8w8mqmEe-pFeRHst7CIA"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="s∈r ‥ r+1" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT8w82qmEe-pFeRHst7CIA"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/SimpleFileTransferProtocol/FTP2.bpo|org.eventb.core.poFile#FTP2|org.eventb.core.poPredicateSet#HYPC5" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="s=r+1⇒d=f(r)" org.eventb.core.source="/SimpleFileTransferProtocol/FTP2.bum|org.eventb.core.machineFile#FTP2|org.eventb.core.invariant#_iT9YAGqmEe-pFeRHst7CIA"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

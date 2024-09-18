@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scMachineFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+    <org.eventb.core.scSeesContext name="'" org.eventb.core.scTarget="/SimpleFileTransferProtocol/C0.bcc" org.eventb.core.source="/SimpleFileTransferProtocol/FTP0.bum|org.eventb.core.machineFile#FTP0|org.eventb.core.seesContext#_m-c_8GqgEe-pFeRHst7CIA"/>
+    <org.eventb.core.scInternalContext name="C0">
+        <org.eventb.core.scAxiom name="'" org.eventb.core.label="axm0_1" org.eventb.core.predicate="0&lt;n" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#_vTgb0GqfEe-pFeRHst7CIA" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scAxiom name="(" org.eventb.core.label="axm0_2" org.eventb.core.predicate="f∈1 ‥ n → D" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#_vThC4GqfEe-pFeRHst7CIA" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scCarrierSet name="D" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.carrierSet#_vTd_kGqfEe-pFeRHst7CIA" org.eventb.core.type="ℙ(D)"/>
+        <org.eventb.core.scConstant name="f" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#_vTf0wWqfEe-pFeRHst7CIA" org.eventb.core.type="ℙ(ℤ×D)"/>
+        <org.eventb.core.scConstant name="n" org.eventb.core.source="/SimpleFileTransferProtocol/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#_vTf0wGqfEe-pFeRHst7CIA" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.scInternalContext>
+    <org.eventb.core.scInvariant name="C1" org.eventb.core.label="inv0_1" org.eventb.core.predicate="g∈ℕ ↔ D" org.eventb.core.source="/SimpleFileTransferProtocol/FTP0.bum|org.eventb.core.machineFile#FTP0|org.eventb.core.invariant#_m-dnAGqgEe-pFeRHst7CIA" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scVariable name="g" org.eventb.core.abstract="false" org.eventb.core.concrete="true" org.eventb.core.source="/SimpleFileTransferProtocol/FTP0.bum|org.eventb.core.machineFile#FTP0|org.eventb.core.variable#_m-c_8mqgEe-pFeRHst7CIA" org.eventb.core.type="ℙ(ℤ×D)"/>
+    <org.eventb.core.scEvent name="C2" org.eventb.core.accurate="true" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION" org.eventb.core.source="/SimpleFileTransferProtocol/FTP0.bum|org.eventb.core.machineFile#FTP0|org.eventb.core.event#'">
+        <org.eventb.core.scAction name="'" org.eventb.core.assignment="g :∈ ℕ ↔ D" org.eventb.core.label="act0_1" org.eventb.core.source="/SimpleFileTransferProtocol/FTP0.bum|org.eventb.core.machineFile#FTP0|org.eventb.core.event#'|org.eventb.core.action#_8--bYGqhEe-pFeRHst7CIA"/>
+    </org.eventb.core.scEvent>
+    <org.eventb.core.scEvent name="C3" org.eventb.core.accurate="true" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="final" org.eventb.core.source="/SimpleFileTransferProtocol/FTP0.bum|org.eventb.core.machineFile#FTP0|org.eventb.core.event#_m-dnAWqgEe-pFeRHst7CIA">
+        <org.eventb.core.scGuard name="'" org.eventb.core.label="grd0_1" org.eventb.core.predicate="g=f" org.eventb.core.source="/SimpleFileTransferProtocol/FTP0.bum|org.eventb.core.machineFile#FTP0|org.eventb.core.event#_m-dnAWqgEe-pFeRHst7CIA|org.eventb.core.guard#_8--bYWqhEe-pFeRHst7CIA" org.eventb.core.theorem="false"/>
+    </org.eventb.core.scEvent>
+    <org.eventb.core.scEvent name="C4" org.eventb.core.accurate="true" org.eventb.core.convergence="2" org.eventb.core.extended="false" org.eventb.core.label="recieve" org.eventb.core.source="/SimpleFileTransferProtocol/FTP0.bum|org.eventb.core.machineFile#FTP0|org.eventb.core.event#_m-dnBGqgEe-pFeRHst7CIA">
+        <org.eventb.core.scGuard name="'" org.eventb.core.label="grd0_1" org.eventb.core.predicate="g≠f" org.eventb.core.source="/SimpleFileTransferProtocol/FTP0.bum|org.eventb.core.machineFile#FTP0|org.eventb.core.event#_m-dnBGqgEe-pFeRHst7CIA|org.eventb.core.guard#_8--bYmqhEe-pFeRHst7CIA" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scAction name="(" org.eventb.core.assignment="g :∈ ℕ ↔ D" org.eventb.core.label="act0_1" org.eventb.core.source="/SimpleFileTransferProtocol/FTP0.bum|org.eventb.core.machineFile#FTP0|org.eventb.core.event#_m-dnBGqgEe-pFeRHst7CIA|org.eventb.core.action#_8--bY2qhEe-pFeRHst7CIA"/>
+    </org.eventb.core.scEvent>
+</org.eventb.core.scMachineFile>
